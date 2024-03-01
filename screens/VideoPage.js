@@ -1,16 +1,31 @@
 import React from "react"
-import { ScrollView, Text, View, Image } from "react-native"
+import { ScrollView, Text, View, Image, Pressable } from "react-native"
 import {
     PlayIcon,
-    ArrowDownTrayIcon
+    ArrowDownTrayIcon,
+    XMarkIcon
 } from "react-native-heroicons/solid"
 import Player from "../components/Uicomponents/Player"
 import { useAppContext } from "../context/Context"
 
 const VideoPage = () => {
-    const { selectedVideo } = useAppContext()
+    const { selectedVideo, setSelectedVideo } = useAppContext()
     return (
         <ScrollView className="overflow-auto bg-[#202020]">
+            <Pressable
+                style={{
+                    position: 'absolute',
+                    top: 20,
+                    right: 15,
+                    zIndex: 1000,
+                    background: "black"
+                }}
+                onPress={() => setSelectedVideo(undefined)}
+            >
+                <XMarkIcon
+                    color='white'
+                />
+            </Pressable>
             <Player uri={selectedVideo?.url || 'http://217.76.58.124:2095/nt3VRpKrmX/Q4NSQtXkMt/704232'} />
             <View className='px-2 my-2 flex-row items-center gap-x-2'>
                 <Image

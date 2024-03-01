@@ -1,12 +1,12 @@
 import { View, Text, Image, Pressable } from "react-native"
 import React from "react"
 import { useAppContext } from "../../context/Context"
-const Posts = ({ imageURL, title, type, item, navigation }) => {
+const Posts = ({ imageURL, title, type, item }) => {
   const randomDecimal = Math.random()
   const randomNumber = Math.round(randomDecimal)
   const { setSelectedVideo } = useAppContext()
   return (
-    <Pressable onPress={() => { setSelectedVideo(item); navigation.jumpTo("New & Hot") }} className="flex w-fit max-w-[120px]">
+    <Pressable onPress={() => { setSelectedVideo(item) }} className="flex w-fit max-w-[120px]">
       <View>
         <Image
           source={{

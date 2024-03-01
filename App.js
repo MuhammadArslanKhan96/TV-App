@@ -11,7 +11,7 @@ const App = () => {
   return (
     <AppProvider>
       <NavigationContainer>
-        <Tab.Navigator>
+        <Tab.Navigator initialRouteName="Home" detachInactiveScreens={false}>
           <Tab.Screen
             options={{
               tabBarIcon: ({ color, size }) => (
