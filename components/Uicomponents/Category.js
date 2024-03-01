@@ -1,19 +1,19 @@
 import React from 'react'
-import { ScrollView, View, Text, TouchableOpacity } from 'react-native'
+import { ScrollView, View, Text, Pressable } from 'react-native'
 import { ChevronRightIcon } from 'react-native-heroicons/solid'
 import Posts from './Posts'
 
 function Category({ title, items, navigation }) {
-  
+
   return (
     <View className="py-10">
       <View className="flex flex-row px-4 justify-between items-center">
         <Text className="text-white font-bold text-lg">{title}</Text>
         {items.length > 10 && (
-          <TouchableOpacity className='flex flex-row items-center'>
+          <View className='flex flex-row items-center'>
             <Text className="text-white font-medium text-base">My List</Text>
             <ChevronRightIcon color={'white'} />
-          </TouchableOpacity>
+          </View>
         )}
       </View>
       <View className="h-5" />

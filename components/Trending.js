@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity } from "react-native"
+import { View, Text, Image } from "react-native"
 import React from "react"
 import {
     PlayIcon,
@@ -22,14 +22,14 @@ const Trending = () => {
                 <Text className="text-white w-fit">Teen Scream</Text>
             </View>
             <View className="flex items-center justify-center gap-x-4 gap-y-2 flex-row">
-                <TouchableOpacity className="flex flex-row items-center justify-center bg-white px-8 rounded-lg py-2">
+                <View className="flex flex-row items-center justify-center bg-white px-8 rounded-lg py-2">
                     <PlayIcon color={'black'} />
                     <Text className="text-black font-bold">Play</Text>
-                </TouchableOpacity>
-                <TouchableOpacity className="flex flex-row items-center justify-center bg-[#333335] px-8 rounded-lg py-2">
+                </View>
+                <View className="flex flex-row items-center justify-center bg-[#333335] px-8 rounded-lg py-2">
                     <PlusIcon color={'white'} />
                     <Text className="text-white font-bold">My List</Text>
-                </TouchableOpacity>
+                </View>
             </View>
             <View className="bg-slate-800 h-2" />
         </View>

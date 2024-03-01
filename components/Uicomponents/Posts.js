@@ -1,12 +1,12 @@
-import { View, Text, Image, TouchableOpacity } from "react-native"
+import { View, Text, Image, Pressable } from "react-native"
 import React from "react"
 import { useAppContext } from "../../context/Context"
-const Posts = ({ imageURL, title, type, navigation, item }) => {
+const Posts = ({ imageURL, title, type, item, navigation }) => {
   const randomDecimal = Math.random()
   const randomNumber = Math.round(randomDecimal)
   const { setSelectedVideo } = useAppContext()
   return (
-    <TouchableOpacity onPress={() => { setSelectedVideo(item), navigation.navigate("New & Hot") }} className="flex w-fit max-w-[120px]">
+    <Pressable onPress={() => { setSelectedVideo(item); navigation.jumpTo("New & Hot") }} className="flex w-fit max-w-[120px]">
       <View>
         <Image
           source={{
@@ -19,7 +19,7 @@ const Posts = ({ imageURL, title, type, navigation, item }) => {
         <Text className="w-fit text-white">{title || "StoryTeller"}</Text>
         <Text className="w-fit text-slate-700">{type?.[randomNumber] || "Puzzle"}</Text>
       </View>
-    </TouchableOpacity>
+    </Pressable>
   )
 }
 

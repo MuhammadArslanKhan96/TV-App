@@ -12,21 +12,36 @@ const App = () => {
     <AppProvider>
       <NavigationContainer>
         <Tab.Navigator>
-          <Tab.Screen options={{
-            tabBarIcon: ({ color, size }) => (
-              <HomeIcon color={color} size={size} />
-            ),
-          }} name="Home" component={HomePage} />
-          <Tab.Screen options={{
-            tabBarIcon: ({ color, size }) => (
-              <VideoCameraIcon color={color} size={size} />
-            ),
-          }} name="New & Hot" component={VideoPage} />
-          <Tab.Screen options={{
-            tabBarIcon: ({ color, size }) => (
-              <FaceSmileIcon color={color} size={size} />
-            ),
-          }} name="My Netflix" component={HomePage} />
+          <Tab.Screen
+            options={{
+              tabBarIcon: ({ color, size }) => (
+                <HomeIcon color={color} size={size} />
+              ),
+              headerShown: false,
+            }}
+            name="Home"
+            component={HomePage}
+          />
+          <Tab.Screen
+            options={{
+              tabBarIcon: ({ color, size }) => (
+                <VideoCameraIcon color={color} size={size} />
+              ),
+              headerShown: false,
+            }}
+            name="New & Hot"
+            component={VideoPage}
+          />
+          <Tab.Screen
+            options={{
+              tabBarIcon: ({ color, size }) => (
+                <FaceSmileIcon color={color} size={size} />
+              ),
+              headerShown: false,
+            }}
+            name="My Netflix"
+            component={HomePage}
+          />
         </Tab.Navigator>
       </NavigationContainer>
     </AppProvider>

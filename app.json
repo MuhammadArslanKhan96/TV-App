@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "my-first-app",
-    "slug": "my-first-app",
+    "name": "tv-app",
+    "slug": "tv-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,15 +25,16 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.afzalimdad9.myfirstapp"
+      "package": "com.arslandev170.tvapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "7c629528-7399-4c55-946a-50714c7be52c"
+        "projectId": "6268fc1f-6748-4a34-ab3b-0dc73f7b3f38"
       }
-    }
+    },
+    "owner": "arslandev170"
   }
 }

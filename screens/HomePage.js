@@ -1,5 +1,4 @@
-import React, { useLayoutEffect, useEffect, useState } from "react"
-import { useNavigation } from "@react-navigation/native"
+import React, { useEffect, useState } from "react"
 import Navbar from "../components/Navbar"
 import Trending from "../components/Trending"
 import { ScrollView } from "react-native"
@@ -14,14 +13,8 @@ const groupBy = (arr, key) => arr.reduce((acc, obj) => {
   return acc
 }, {})
 
-const HomePage = () => {
+const HomePage = ({ navigation }) => {
   const [result, setResult] = useState({})
-  const navigation = useNavigation()
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerShown: false,
-    })
-  }, [])
 
   useEffect(() => {
     const items = getList()
