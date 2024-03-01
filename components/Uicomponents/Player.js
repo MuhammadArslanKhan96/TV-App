@@ -1,27 +1,37 @@
 import React, { useEffect, useState } from "react"
 import VideoPlayer from 'expo-video-player'
-import { Text } from "react-native"
 
 function HLSPlayer({ uri }) {
-    const [show, setShow] = useState(false)
+    const [useNativeControls, setUseNativeControls] = useState(true)
+    try {
+        useEffect(() => {
+            return () => setUseNativeControls(false)
+        }, [])
 
-    useEffect(() => { setTimeout(() => setShow(true), 7000) }, [])
 
-    if (!show) return <Text>Loading...</Text>
-    return (
-        <VideoPlayer
-            videoProps={{
-                shouldPlay: true,
-                resizeMode: "cover",
-                source: {
-                    uri: uri || 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-                },
-            }}
-            style={{
-                height: 240
-            }}
-        />
-    )
+        return (
+            <VideoPlayer
+                useNativeControls={useNativeControls}
+                videoProps={{
+                    shouldPlay: true,
+                    resizeMode: "cover",
+                    source: {
+                        uri: uri || 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+                    },
+                }}
+                style={{
+                    height: 240
+                }}
+            />
+        )
+    } catch (error) {
+        // Handle the error
+        return (
+            <div>
+                <p>Error: {error.message}</p>
+            </div>
+        )
+    }
 }
 
 export default HLSPlayer
