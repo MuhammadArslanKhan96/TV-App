@@ -1,21 +1,21 @@
-import { ResizeMode } from 'expo-av'
+import React, { useEffect, useState } from "react"
 import VideoPlayer from 'expo-video-player'
-import { useState } from 'react'
+import { Text } from "react-native"
+
 function HLSPlayer({ uri }) {
-    const [inFullscreen, setInFullscreen] = useState(false)
+    const [show, setShow] = useState(false)
+
+    useEffect(() => { setTimeout(() => setShow(true), 7000) }, [])
+
+    if (!show) return <Text>Loading...</Text>
     return (
         <VideoPlayer
             videoProps={{
                 shouldPlay: true,
-                resizeMode: ResizeMode.COVER,
+                resizeMode: "cover",
                 source: {
                     uri: uri || 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
                 },
-            }}
-            fullscreen={{
-                inFullscreen,
-                enterFullscreen: () => setInFullscreen(true),
-                exitFullscreen: () => setInFullscreen(false),
             }}
             style={{
                 height: 240
