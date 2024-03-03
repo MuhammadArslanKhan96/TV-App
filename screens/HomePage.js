@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react"
+import { useNavigation } from "@react-navigation/native";
 import Navbar from "../components/Navbar"
 import Trending from "../components/Trending"
 import { ScrollView } from "react-native"
 import Category from "../components/Uicomponents/Category"
 import { getList } from '../constants/listJson'
 import { useAppContext } from "../context/Context"
-import VideoPage from "./VideoPage"
 
 
 const groupBy = (arr, key) => arr.reduce((acc, obj) => {
@@ -18,13 +18,18 @@ const groupBy = (arr, key) => arr.reduce((acc, obj) => {
 const HomePage = () => {
   const [result, setResult] = useState({})
   const { selectedVideo } = useAppContext()
+  const navigation = useNavigation();
   useEffect(() => {
     const items = getList()
     const result = groupBy(items, 'group')
     setResult((result))
   }, [])
 
-  if (selectedVideo?.name) return <VideoPage />
+  useEffect(() => {
+    if (selectedVideo?.name) {
+      navigation.navigate('New & Hot');
+    }
+  }, [selectedVideo, navigation]);
 
   return (
     <ScrollView className="overflow-auto bg-[#202020]">
